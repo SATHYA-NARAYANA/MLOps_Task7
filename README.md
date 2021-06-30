@@ -5,5 +5,6 @@ In this task you have to create a Web Application for Docker (one of the great C
 👉docker ps   
 👉docker run   
 👉docker rm -f 
+
 👉docker exec 
 👉 add more if you want. (Optional) 
