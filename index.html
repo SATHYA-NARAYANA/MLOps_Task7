@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Docker World</title>
+        
+    </head>
+    <style>
+        body{
+            
+            background-image: url('code.gif') ;
+            background-repeat:no-repeat;
+            
+            }
+            #d{
+                font-family: 'Times New Roman', Times, serif;
+                font-weight: 30px;
+                font-size: 40px;
+                text-align: center;
+                color: rgb(17, 20, 221);
+                
+            }
+
+            #out1{
+                margin-left: 540px;
+                color: rgb(40, 110, 167);
+                font-family: normal;
+                font-size: 25px;
+                border-top: 2px solid rgb(40, 110, 167);
+                border-bottom: 2px solid rgb(40, 110, 167);
+                padding: 18px;
+                border-left: 12px solid rgb(40, 110, 167);
+                border-right: 12px solid rgb(40, 110, 167);
+                border-radius: 14px 14px;
+               }
+
+           
+            #f{
+                color: rgb(40, 110, 167);
+                text-align: center;
+                font-size: 15px;
+                font-family: fantasy;
+                border-radius: 30px;
+                padding: 8px;
+                border-top: 2px solid rgb(8, 253, 171);
+                border-bottom: 2px solid rgb(231, 3, 251);
+                border-left: 12px solid rgb(40, 110, 167);
+                border-right: 12px solid rgb(40, 110, 167);
+                border-radius: 12px 12px;
+                background-color: rgb(255, 255, 255);
+
+            }
+            #f:hover{
+                text-decoration-style: double;
+
+            }
+            #h{
+                text-align:center;
+                border-radius: 15px;
+                overflow: hidden;
+                position: relative;
+                backdrop-filter: blur(5px) saturate(100%) contrast(45%) brightness(130%);
+                margin-left: 200px;
+                margin-right: 200px;
+                font-weight: normal;
+                font-size: 16px;
+            }
+            
+
+    </style>
+    <body>
+        <div>
+              <p id= d>Enter Any Docker Command </p> 
+            </div>
+        <div>
+            <input id=out1 type="text" />
+        </div>
+        <br>
+        <br>
+        <div style="text-align: center;" >
+        <button id=f type="button" onclick="lw()"> SUBMIT </button>
+        </div>
+        <pre id=h>OUTPUT AREA
+
+        </pre>
+       <script>
+           function lw(){
+               var xhr = new XMLHttpRequest();
+               xhr.open("GET","http://192.168.43.16/cgi-bin/docker.py?x="+document.getElementById('out1').value,true);
+               xhr.send();
+            xhr.onload=function()
+            {
+                var output= xhr.responseText;
+                document.getElementById("h").innerHTML=output; 
+            };
+         } 
+       </script> 
+    </body>
+</html>
